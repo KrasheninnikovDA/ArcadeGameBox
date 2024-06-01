@@ -4,17 +4,21 @@ using UnityEngine;
 public class RoadbedMove : MonoBehaviour
 {
     private Variable<float> _speed;
+    private float _directionMove;
     private Rigidbody2D _rb;
+    private MoveMechanics moveMechanics;
 
-    public void Create(Variable<float> speed)
+    public void Construct(RoadConfig roadConfig)
     {
-        _speed = speed;
+        _speed = roadConfig.SpeedRoadbed;
+        _directionMove = roadConfig.DirectionOfMovementIsDown;
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
+        moveMechanics = new(_rb);
     }
 
     private void FixedUpdate()
     {
-        
+        moveMechanics.MoveVertically(_directionMove, _speed.Value);
     }
 }
