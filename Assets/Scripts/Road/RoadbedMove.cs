@@ -15,8 +15,7 @@ public class RoadbedMove : MonoBehaviour, INeedyConfForMovement
         _directionMove = roadConfig.DirectionOfMovementIsDown;
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
-        moveMechanics = MoveMechanics.CreateNew(_rb);
-        Debug.Log(moveMechanics);
+        moveMechanics = new (_rb);
     }
 
     private void Update()

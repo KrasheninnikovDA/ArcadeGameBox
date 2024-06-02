@@ -21,13 +21,13 @@ public class RoadbedCreater : MonoBehaviour
     public void Create()
     {
         int randomIndex = Random.Range(0, _prefRoadbeds.Length - 1);
-        GameObject roadbed = GameObject.Instantiate(_prefRoadbeds[randomIndex], _lastPositionRoadbedInQueue.Position, Quaternion.identity);
+        GameObject roadbed = Instantiate(_prefRoadbeds[randomIndex], _lastPositionRoadbedInQueue.Position, Quaternion.identity);
         InstallDependencies(roadbed);
     }
 
     public void Create(GameObject _prefFirstRoadbed)
     {
-        GameObject roadbed = GameObject.Instantiate(_prefFirstRoadbed, _startPosition.TransformDirection(_startPosition.position), Quaternion.identity);
+        GameObject roadbed = Instantiate(_prefFirstRoadbed, _startPosition.TransformDirection(_startPosition.position), Quaternion.identity);
         InstallDependencies(roadbed);
     }
 

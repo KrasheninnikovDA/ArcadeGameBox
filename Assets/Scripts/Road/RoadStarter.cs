@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class RoadStarter : MonoBehaviour
 {
-    [SerializeField] private GameObject _starterPrefab;
     [SerializeField] private RoadbedCreater _roadbedCreater;
     [SerializeField] private RoadConfig _config;
     [SerializeField] private Transform _pointBorderScreen;
+    [SerializeField] private CarCreater _carCreater;
 
     void Awake()
     {

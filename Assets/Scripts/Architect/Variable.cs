@@ -14,8 +14,7 @@ public sealed class Variable<T>
         }
     }
 
-    [SerializeField]
-    private T _value;
+    [SerializeField] private T _value;
 
     public Variable(T value)
     {

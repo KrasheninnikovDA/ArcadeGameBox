@@ -5,11 +5,6 @@ public class MoveMechanics
 {
     private readonly Rigidbody2D _rigidbody2D;
 
-    public static MoveMechanics CreateNew(Rigidbody2D rigidbody2D)
-    {
-        return new MoveMechanics(rigidbody2D);
-    }
-
     public MoveMechanics (Rigidbody2D rigidbody2D)
     {
         _rigidbody2D = rigidbody2D;
