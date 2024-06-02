@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Beckgound
+    uniqueID: 773990103
+    locked: 0
+  - name: Road
+    uniqueID: 3761447057
+    locked: 0
+  - name: Cars
+    uniqueID: 601211681
+    locked: 0
+  - name: Player
+    uniqueID: 4108014351
+    locked: 0

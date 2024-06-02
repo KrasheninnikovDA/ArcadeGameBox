@@ -1,7 +1,8 @@
 
 using UnityEngine;
 
-public class RoadbedMove : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class RoadbedMove : MonoBehaviour, INeedyConfForMovement
 {
     private Variable<float> _speed;
     private float _directionMove;
@@ -14,10 +15,11 @@ public class RoadbedMove : MonoBehaviour
         _directionMove = roadConfig.DirectionOfMovementIsDown;
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
-        moveMechanics = new(_rb);
+        moveMechanics = MoveMechanics.CreateNew(_rb);
+        Debug.Log(moveMechanics);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         moveMechanics.MoveVertically(_directionMove, _speed.Value);
     }
