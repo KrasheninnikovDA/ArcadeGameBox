@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated
+public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated, ISwitchable
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
@@ -30,7 +30,7 @@ public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated
         _animationPlayer = animationPlayer;
     }
 
-    public override void SetSwitherState(SwitcherState switcherState)
+    public void SetSwitherState(SwitcherState switcherState)
     {
         _switcherState = switcherState;
     }
@@ -54,7 +54,7 @@ public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated
         _idleTimer.ActionStopTimer.Unsubscribe(SwitchToNextState);
     }
 
-    protected override void SwitchToNextState()
+    private void SwitchToNextState()
     {
         _switcherState.Switch(_nameNextState);
     }

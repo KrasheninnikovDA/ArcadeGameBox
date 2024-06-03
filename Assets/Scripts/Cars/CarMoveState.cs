@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated
+public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated, ISwitchable
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private StateName _nameNextState;
@@ -34,7 +34,7 @@ public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated
         determinDirection = new(transform, positionBorderLeft.position, positionBorderRight.position);
     }
 
-    public override void SetSwitherState(SwitcherState switcherState)
+    public void SetSwitherState(SwitcherState switcherState)
     {
         _switcherState = switcherState;
     }
@@ -64,7 +64,7 @@ public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated
         determinDirection.EndPathMover.Unsubscribe(SwitchToNextState);
     }
 
-    protected override void SwitchToNextState()
+    private void SwitchToNextState()
     {
         _switcherState.Switch(_nameNextState);
     }

@@ -26,5 +26,11 @@ public class CarDependenciesInstaller : MonoBehaviour
         {
             animated.SetPlayerAnimation(_animatorOfStates);
         }
+
+        ISwitchable[] switchables = GetComponentsInChildren<ISwitchable>();
+        foreach (ISwitchable switchable in switchables)
+        {
+            switchable.SetSwitherState(_switcherState);
+        }
     }
 }

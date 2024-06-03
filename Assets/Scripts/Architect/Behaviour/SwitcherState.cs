@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,6 @@ public class SwitcherState : MonoBehaviour
         foreach (AbsState state in _states)
         {
             _strategiesMap.Add(state.NameState, state);
-            state.SetSwitherState(this);
         }
     }
 

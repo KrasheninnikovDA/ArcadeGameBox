@@ -2,10 +2,10 @@
 public class TimeDilationMechanics
 {
     private Variable<float> _speedRoadbed;
-    private float _deceleration;
+    private Variable<float> _deceleration;
     private float _speedAtMomentOfDeceleration;
 
-    public TimeDilationMechanics (Variable<float> speedRoadbed, float deceleration)
+    public TimeDilationMechanics (Variable<float> speedRoadbed, Variable<float> deceleration)
     {
         _speedRoadbed = speedRoadbed;
         _deceleration = deceleration;
@@ -27,7 +27,7 @@ public class TimeDilationMechanics
     private void SlowDown()
     {
         _speedAtMomentOfDeceleration = _speedRoadbed.Value;
-        float slowSpeed = _speedRoadbed.Value * _deceleration;
+        float slowSpeed = _speedRoadbed.Value * _deceleration.Value;
         _speedRoadbed.Value = slowSpeed;
     }
 
