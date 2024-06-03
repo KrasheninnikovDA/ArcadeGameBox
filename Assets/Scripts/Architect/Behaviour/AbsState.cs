@@ -1,9 +1,15 @@
 
-using System;
 using UnityEngine;
 
+public enum StateName
+{
+    Idle,
+    Move,
+    Crash
+}
 public abstract class AbsState : MonoBehaviour
 {
+    public abstract StateName NameState { get; }
     public abstract void SetSwitherState(SwitcherState switcherState);
     //при установке как действующего состояния
     public abstract void Initialize();

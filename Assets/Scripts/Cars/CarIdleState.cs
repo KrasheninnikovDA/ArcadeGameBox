@@ -1,16 +1,29 @@
 using System;
 using UnityEngine;
 
-public class CarIdleState : AbsState, IAnimated
+[RequireComponent(typeof(Rigidbody2D))]
+public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
+    [SerializeField] private StateName _nameNextState;
     public string NameAnimation => _nameAnimation;
+    public override StateName NameState => StateName.Idle;
 
     private SwitcherState _switcherState;
-    private Type _nextState = typeof(CarMoveState);
     private IPlayingAnimations _animationPlayer;
     private Timer _idleTimer;
+
+    private MoveMechanics _moveMechanics;
+    private Variable<float> _verticalSpeed;
+    private float _verticlDirection;
+
+    public void Construct(RoadConfig roadConfig)
+    {
+        _verticalSpeed = roadConfig.SpeedRoadbed;
+        _verticlDirection = roadConfig.DirectionOfMovementIsDown;
+        _moveMechanics = new(GetComponent<Rigidbody2D>());
+    }
 
     public void SetPlayerAnimation(IPlayingAnimations animationPlayer)
     {
@@ -32,6 +45,7 @@ public class CarIdleState : AbsState, IAnimated
     public override void ÑontrolledUpdate()
     {
         _animationPlayer.PlayAnimation(this);
+        _moveMechanics.MoveVertically(_verticlDirection, _verticalSpeed.Value);
         _idleTimer.Update();
     }
 
@@ -42,6 +56,6 @@ public class CarIdleState : AbsState, IAnimated
 
     protected override void SwitchToNextState()
     {
-        _switcherState.Switch(_nextState);
+        _switcherState.Switch(_nameNextState);
     }
 }

@@ -20,7 +20,7 @@ public class RoadbedCreater : MonoBehaviour
 
     public void Create()
     {
-        int randomIndex = Random.Range(0, _prefRoadbeds.Length - 1);
+        int randomIndex = Random.Range(0, _prefRoadbeds.Length);
         GameObject roadbed = Instantiate(_prefRoadbeds[randomIndex], _lastPositionRoadbedInQueue.Position, Quaternion.identity);
         InstallDependencies(roadbed);
     }
@@ -39,6 +39,10 @@ public class RoadbedCreater : MonoBehaviour
         deletedOffScreen.EndLifeCycle.Subscribe(Create);
         deletedOffScreen.SetPointBorderScreen(_pointBorderScreen.position);
 
-        roadbed.GetComponent<INeedyConfForMovement>().Construct(_config);
+        INeedyConfForMovement[] needyConfForMovement = roadbed.GetComponents<INeedyConfForMovement>();
+        foreach(INeedyConfForMovement needy in needyConfForMovement) 
+        {
+            needy.Construct(_config);
+        }
     }
 }

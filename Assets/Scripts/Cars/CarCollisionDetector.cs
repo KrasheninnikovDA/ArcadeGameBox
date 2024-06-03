@@ -4,10 +4,10 @@ using UnityEngine;
 public class CarCollisionDetector : MonoBehaviour, ICrashed
 {
     [SerializeField] private SwitcherState _switcherState;
-    private Type _nextState = typeof(CarCrashState);
-
+    [SerializeField] private StateName stateName;
+  
     public void Crash()
     {
-        _switcherState.Switch(_nextState);
+        _switcherState.Switch(stateName);
     }
 }

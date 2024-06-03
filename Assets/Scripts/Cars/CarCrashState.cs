@@ -5,7 +5,9 @@ public class CarCrashState : AbsState, IAnimated
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
+    [SerializeField] private StateName _nameNextState;
     public string NameAnimation => _nameAnimation;
+    public override StateName NameState => StateName.Crash;
 
     private SwitcherState _switcherState;
     private IPlayingAnimations _animationPlayer;
@@ -41,6 +43,6 @@ public class CarCrashState : AbsState, IAnimated
 
     protected override void SwitchToNextState()
     {
-        _switcherState.Switch(typeof(CarCrashState));
+        _switcherState.Switch(_nameNextState);
     }
 }

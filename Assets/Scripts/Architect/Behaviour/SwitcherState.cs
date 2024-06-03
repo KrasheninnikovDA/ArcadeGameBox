@@ -6,22 +6,22 @@ public class SwitcherState : MonoBehaviour
 {
     [SerializeField] private AbsState[] _states;
 
-    private Dictionary<Type, AbsState> _strategiesMap = new();
+    private Dictionary<StateName, AbsState> _strategiesMap = new();
     private AbsState _currentState;
 
     public void Construct()
     {
         foreach (AbsState state in _states)
         {
-            _strategiesMap.Add(state.GetType(), state);
+            _strategiesMap.Add(state.NameState, state);
             state.SetSwitherState(this);
         }
     }
 
-    public void Switch(Type strategy)
+    public void Switch(StateName stateName)
     {
         _currentState?.Unplug();
-        _currentState = _strategiesMap[strategy];
+        _currentState = _strategiesMap[stateName];
         _currentState.Initialize();
     }
 

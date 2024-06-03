@@ -22,7 +22,7 @@ public class DeterminDirectionMechanics
         _transformMover = transformMover;
         _positionTargetPointLeft = positionTargetPointLeft;
         _positionTargetPointRight = positionTargetPointRight;
-        _currentTarget = GetCurrentTarget();
+        _currentTarget = positionTargetPointRight;
         _distanceCheckTimer = new(0.3f, TimerMode.singlnes);
         _currentDerection = DirectionMovment.right;
     }
@@ -33,20 +33,13 @@ public class DeterminDirectionMechanics
         return (float)_currentDerection;
     }
 
-    private Vector3 GetCurrentTarget()
-    {
-        Vector2 currentPositionMover = _transformMover.position;
-        float distans1 = Vector2.Distance(_positionTargetPointLeft, currentPositionMover);
-        float distans2 = Vector2.Distance(_positionTargetPointRight, currentPositionMover);
-        return distans1 >= distans2 ? _positionTargetPointRight : _positionTargetPointLeft;
-    }
-
     public void CheckEndPath()
     {
         bool endPathX = Mathf.Abs(_transformMover.position.x - _currentTarget.x) <= 0.1f;
         if (endPathX && !_distanceCheckTimer.Runing)
         {
             SwithDirection();
+            EndPathMover.Invoke();
         }
         _distanceCheckTimer.Update();
     }
@@ -61,10 +54,10 @@ public class DeterminDirectionMechanics
     {
         if (_currentTarget == _positionTargetPointLeft)
         { 
-            _currentDerection = DirectionMovment.left;
+            _currentDerection = DirectionMovment.right;
             return _positionTargetPointRight; 
         }
-        _currentDerection = DirectionMovment.right;
+        _currentDerection = DirectionMovment.left;
         return _positionTargetPointLeft;
     }
 }
