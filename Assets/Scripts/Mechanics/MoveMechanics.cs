@@ -4,6 +4,7 @@ using UnityEngine;
 public class MoveMechanics 
 {
     private readonly Rigidbody2D _rigidbody2D;
+    private const float sensitivity = 0.01f;
 
     public MoveMechanics (Rigidbody2D rigidbody2D)
     {
@@ -32,6 +33,6 @@ public class MoveMechanics
 
     private bool ChackValueDirection(float directionValue)
     {
-        return Mathf.Abs(directionValue) > 0.01f;
+        return Mathf.Abs(directionValue) > sensitivity;
     }
 }

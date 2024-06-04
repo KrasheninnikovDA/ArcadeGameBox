@@ -6,6 +6,8 @@ public class CarCrashState : AbsState, IAnimated, ISwitchable
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
     [SerializeField] private StateName _nameNextState;
+    [SerializeField] private BoxCollider2D _boxCollider;
+
     public string NameAnimation => _nameAnimation;
     public override StateName NameState => StateName.Crash;
 
@@ -25,6 +27,7 @@ public class CarCrashState : AbsState, IAnimated, ISwitchable
 
     public override void Initialize()
     {
+        _boxCollider.enabled = false;
         _crashTimer = new(_durationState, TimerMode.singlnes);
         _crashTimer.ActionStopTimer.Subscribe(SwitchToNextState);
         _crashTimer.Start();

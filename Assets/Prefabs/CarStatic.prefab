@@ -68,6 +68,7 @@ MonoBehaviour:
   _nameAnimation: CarCrash
   _durationState: 0.5
   _nameNextState: 2
+  _boxCollider: {fileID: 3405941169922414509}
 --- !u!114 &8526519959231493491
 MonoBehaviour:
   m_ObjectHideFlags: 0

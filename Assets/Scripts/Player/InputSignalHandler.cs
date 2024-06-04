@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public class InputSignalHandler : MonoBehaviour, IRequiringInput
+public class InputSignalHandler : MonoBehaviour, IRequiringInput, ISwitchable
 {
-    [SerializeField] private SwitcherState _switcherState;
+    private SwitcherState _switcherState;
     private AbsInput _input;
-    
+    private const float sensitivity = 0.01f;
+
     public void SetInput(AbsInput input)
     {
         _input = input;
+    }
+
+    public void SetSwitherState(SwitcherState switcherState)
+    {
+        _switcherState = switcherState;
     }
 
     private void Update()
@@ -17,7 +23,7 @@ public class InputSignalHandler : MonoBehaviour, IRequiringInput
 
     private void EnableMoveStatus(float direction)
     {
-        if (Mathf.Abs(direction) > 0.01f)
+        if (Mathf.Abs(direction) > sensitivity)
         {
             _switcherState.Switch(StateName.Move);
             return;
