@@ -7,10 +7,17 @@ public class PlayerDependenciesInstaller : MonoBehaviour
     [SerializeField] private AnimatorOfStates _animatorOfStates;
     [SerializeField] private AudioSourceOfState _audioSourceOfState;
     [SerializeField] private AbsInput _input;
+    [SerializeField] private RoadConfig _roadConfig;
 
     public void InstallDependencies()
     {
         _switcherState.Construct();
+
+        INeedyConfForMovement[] needyConfForMovements = GetComponents<INeedyConfForMovement>();
+        foreach (INeedyConfForMovement needyConfForMovement in needyConfForMovements)
+        {
+            needyConfForMovement.Construct(_roadConfig);
+        }
 
         IAnimated[] animateds = GetComponents<IAnimated>();
         foreach (IAnimated animated in animateds)

@@ -19,9 +19,14 @@ public class SwitcherState : MonoBehaviour
 
     public void Switch(StateName stateName)
     {
-        _currentState?.Unplug();
-        _currentState = _strategiesMap[stateName];
-        _currentState.Initialize();
+        bool checkForMatchingStatuses = _currentState == null || _currentState?.NameState != stateName;
+        if (checkForMatchingStatuses)
+        {
+            _currentState?.Unplug();
+            _currentState = _strategiesMap[stateName];
+            _currentState.Initialize();
+
+        }
     }
 
     private void Update()

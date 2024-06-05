@@ -55,6 +55,7 @@ public class PlayerMoveState : AbsState, IRequiringInput, IAnimated, IVoiced
     public override void Unplug()
     {
         _audioSource.StopAudioClip();
+        _moveMechanics.Stop();
     }
 
     private string GetNameAnimation()

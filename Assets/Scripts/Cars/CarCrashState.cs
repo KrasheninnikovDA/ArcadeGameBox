@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class CarCrashState : AbsState, IAnimated, ISwitchable
+public class CarCrashState : AbsState, IAnimated
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
@@ -11,7 +11,6 @@ public class CarCrashState : AbsState, IAnimated, ISwitchable
     public string NameAnimation => _nameAnimation;
     public override StateName NameState => StateName.Crash;
 
-    private SwitcherState _switcherState;
     private IPlayingAnimations _animationPlayer;
     private Timer _crashTimer;
 
@@ -20,16 +19,11 @@ public class CarCrashState : AbsState, IAnimated, ISwitchable
         _animationPlayer = animationPlayer;
     }
 
-    public void SetSwitherState(SwitcherState switcherState)
-    {
-        _switcherState = switcherState;
-    }
-
     public override void Initialize()
     {
         _boxCollider.enabled = false;
         _crashTimer = new(_durationState, TimerMode.singlnes);
-        _crashTimer.ActionStopTimer.Subscribe(SwitchToNextState);
+        _crashTimer.ActionStopTimer.Subscribe(DestroyCar);
         _crashTimer.Start();
     }
 
@@ -41,11 +35,10 @@ public class CarCrashState : AbsState, IAnimated, ISwitchable
 
     public override void Unplug()
     {
-        Destroy(gameObject);
     }
 
-    private void SwitchToNextState()
+    private void DestroyCar()
     {
-        _switcherState.Switch(_nameNextState);
+        Destroy(gameObject);
     }
 }

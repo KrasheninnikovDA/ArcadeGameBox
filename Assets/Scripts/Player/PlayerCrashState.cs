@@ -52,6 +52,7 @@ public class PlayerCrashState : AbsState, INeedyConfForMovement, IAnimated, IVoi
     public override void —ontrolledUpdate()
     {
         _animationPlayer.PlayAnimation(this);
+        _timerCrash.Update();
         Disperse();
     }
 
@@ -104,6 +105,6 @@ public class PlayerCrashState : AbsState, INeedyConfForMovement, IAnimated, IVoi
 
     private void Disperse()
     {
-        _speedRoad.Value = _speedAtMomentOfCrash * _acceleration—urve.Evaluate(_timerCrash.PercentageOfCompletion) * Time.deltaTime;
+        _speedRoad.Value = _speedAtMomentOfCrash * _acceleration—urve.Evaluate(_timerCrash.PercentageOfCompletion);
     }
 }

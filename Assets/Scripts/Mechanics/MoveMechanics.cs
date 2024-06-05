@@ -31,6 +31,11 @@ public class MoveMechanics
         _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
     }
 
+    public void Stop()
+    {
+        _rigidbody2D.velocity = Vector2.zero;
+    }
+
     private bool ChackValueDirection(float directionValue)
     {
         return Mathf.Abs(directionValue) > sensitivity;

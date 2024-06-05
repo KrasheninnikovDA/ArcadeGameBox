@@ -12,7 +12,7 @@ public class Timer
     public AtomickAction ActionStartTimer = new();
     public AtomickAction ActionStopTimer = new();
     public bool Runing { private set; get; }
-    public float PercentageOfCompletion => _currentTime / _duration;
+    public float PercentageOfCompletion => DeterminPercentageOfCompletion();
 
     private float _duration;
     private float _currentTime;
@@ -63,5 +63,12 @@ public class Timer
         {
             Start();
         }
+    }
+
+    private float DeterminPercentageOfCompletion()
+    {
+        if (_currentTime / _duration <= 0)
+            return 1f;
+        return _currentTime / _duration;
     }
 }
