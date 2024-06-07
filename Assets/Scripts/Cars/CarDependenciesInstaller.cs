@@ -15,10 +15,10 @@ public class CarDependenciesInstaller : MonoBehaviour
 
     private void InstallDependencies(RoadConfig roadConfig)
     {
-        INeedyConfForMovement[] needyConfForMovement = GetComponentsInChildren<INeedyConfForMovement>();
-        foreach (INeedyConfForMovement needy in needyConfForMovement)
+        INeedyConfigForMovement[] needyConfForMovement = GetComponentsInChildren<INeedyConfigForMovement>();
+        foreach (INeedyConfigForMovement needy in needyConfForMovement)
         {
-            needy.Construct(roadConfig);
+            needy.SetConfig(roadConfig);
         }
 
         IAnimated[] animateds = GetComponentsInChildren<IAnimated>();

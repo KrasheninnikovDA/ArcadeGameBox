@@ -30,7 +30,6 @@ public class BatteryMechanics
         if (isRuning)
         {
             _currentContainer -= Time.deltaTime;
-            _currentContainer = Mathf.Clamp(_currentContainer, 0, _maxContainer);
         }
     }
 

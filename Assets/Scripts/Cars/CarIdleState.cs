@@ -1,8 +1,8 @@
-using System;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated, ISwitchable
+public class CarIdleState : AbsState, INeedyConfigForMovement, IAnimated, ISwitchable
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private float _durationState;
@@ -18,11 +18,15 @@ public class CarIdleState : AbsState, INeedyConfForMovement, IAnimated, ISwitcha
     private Variable<float> _verticalSpeed;
     private float _verticlDirection;
 
-    public void Construct(RoadConfig roadConfig)
+    private void Start()
+    {
+        _moveMechanics = new(GetComponent<Rigidbody2D>());
+    }
+
+    public void SetConfig(RoadConfig roadConfig)
     {
         _verticalSpeed = roadConfig.SpeedRoadbed;
         _verticlDirection = roadConfig.DirectionOfMovementIsDown;
-        _moveMechanics = new(GetComponent<Rigidbody2D>());
     }
 
     public void SetPlayerAnimation(IPlayingAnimations animationPlayer)

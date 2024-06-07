@@ -1,17 +1,37 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class RoadBorder : MonoBehaviour
 {
-    private Rigidbody2D _rb;
-    private void Awake()
+    [SerializeField] private float _frequencyOfDamage;
+    private Timer _timerDamage;
+
+    private ICrashed crashed;
+
+    private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _timerDamage = new(_frequencyOfDamage, TimerMode.loop);
+        _timerDamage.Start();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        _rb.velocity = Vector2.zero;
+        crashed = collision.GetComponent<ICrashed>();
+        _timerDamage.ActionStopTimer.Subscribe(TakeDamage);
+    }
+
+    private void Update()
+    {
+        _timerDamage.Update();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _timerDamage.ActionStopTimer.Unsubscribe(TakeDamage);
+    }
+
+    private void TakeDamage()
+    {
+        crashed?.Crash();
     }
 }

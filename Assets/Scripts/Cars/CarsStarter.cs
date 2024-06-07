@@ -1,11 +1,11 @@
 
 using UnityEngine;
 
-public class CarsStarter : MonoBehaviour, INeedyConfForMovement
+public class CarsStarter : MonoBehaviour, INeedyConfigForMovement
 {
     [SerializeField] private CarDependenciesInstaller[] _cars;
 
-    public void Construct(RoadConfig roadConfig)
+    public void SetConfig(RoadConfig roadConfig)
     {
         foreach(var car in _cars) 
         {

@@ -13,10 +13,10 @@ public class PlayerDependenciesInstaller : MonoBehaviour
     {
         _switcherState.Construct();
 
-        INeedyConfForMovement[] needyConfForMovements = GetComponents<INeedyConfForMovement>();
-        foreach (INeedyConfForMovement needyConfForMovement in needyConfForMovements)
+        INeedyConfigForMovement[] needyConfForMovements = GetComponents<INeedyConfigForMovement>();
+        foreach (INeedyConfigForMovement needyConfForMovement in needyConfForMovements)
         {
-            needyConfForMovement.Construct(_roadConfig);
+            needyConfForMovement.SetConfig(_roadConfig);
         }
 
         IAnimated[] animateds = GetComponents<IAnimated>();

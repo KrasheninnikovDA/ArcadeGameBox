@@ -1,9 +1,8 @@
 
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated, ISwitchable
+public sealed class CarMoveState : AbsState, INeedyConfigForMovement, IAnimated, ISwitchable
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private StateName _nameNextState;
@@ -25,13 +24,17 @@ public sealed class CarMoveState : AbsState, INeedyConfForMovement, IAnimated, I
     private MoveMechanics moveMechanics;
     private DeterminDirectionMechanics determinDirection;
 
-    public void Construct(RoadConfig roadConfig)
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _verticalSpeed = roadConfig.SpeedRoadbed;
-        _verticlDirection = roadConfig.DirectionOfMovementIsDown;
         moveMechanics = new(_rb);
         determinDirection = new(transform, positionBorderLeft.position, positionBorderRight.position);
+    }
+
+    public void SetConfig(RoadConfig roadConfig)
+    {
+        _verticalSpeed = roadConfig.SpeedRoadbed;
+        _verticlDirection = roadConfig.DirectionOfMovementIsDown;
     }
 
     public void SetSwitherState(SwitcherState switcherState)

@@ -1,19 +1,36 @@
 
 using UnityEngine;
 
-public class PlayerHP : MonoBehaviour
+public class PlayerHP : MonoBehaviour, ICrashed
 {
-    [SerializeField] private Variable<int> _maxHP;
+    [SerializeField] private int _maxHP;
+    [SerializeField] private int _valueDamag;
 
     private HPControlMechanics _hpControlMechanics;
+    private Variable<int> _currentHP;
 
-    private void Awake()
+    private void Start()
     {
-        _hpControlMechanics = new(_maxHP);
+        _currentHP = new(_maxHP);
+        _hpControlMechanics = new(_currentHP);
+        _hpControlMechanics.TakeDamageAction.Subscribe(PrintHP);
+        _hpControlMechanics.DeathAction.Subscribe(Death);
     }
 
-    public void TakeDamageAction()
+    public void Crash()
     {
-        _hpControlMechanics.TakeDamage();
+        _hpControlMechanics.TakeDamage(_valueDamag);
     }
+
+    private void PrintHP()
+    {
+        Game.EventBus.TakeDamagEvent.Invoke((float)_currentHP.Value / _maxHP);
+    }
+
+    private void Death()
+    {
+        Game.EventBus.DeadPlayer.Invoke();
+    }
+
+
 }

@@ -2,20 +2,24 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class RoadbedMove : MonoBehaviour, INeedyConfForMovement
+public class RoadbedMove : MonoBehaviour, INeedyConfigForMovement
 {
     private Variable<float> _speed;
     private float _directionMove;
     private Rigidbody2D _rb;
     private MoveMechanics moveMechanics;
 
-    public void Construct(RoadConfig roadConfig)
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0;
+        moveMechanics = new(_rb);
+    }
+
+    public void SetConfig(RoadConfig roadConfig)
     {
         _speed = roadConfig.SpeedRoadbed;
         _directionMove = roadConfig.DirectionOfMovementIsDown;
-        _rb = GetComponent<Rigidbody2D>();
-        _rb.gravityScale = 0;
-        moveMechanics = new (_rb);
     }
 
     private void Update()

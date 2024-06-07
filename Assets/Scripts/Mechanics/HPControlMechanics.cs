@@ -14,9 +14,9 @@ public class HPControlMechanics
         _currentHP = currentHP;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        _currentHP.Value--;
+        _currentHP.Value -= damage;
         CheckIsLive();
         TakeDamageAction.Invoke();
     }

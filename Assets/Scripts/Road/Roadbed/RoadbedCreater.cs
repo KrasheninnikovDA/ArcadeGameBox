@@ -39,10 +39,10 @@ public class RoadbedCreater : MonoBehaviour
         deletedOffScreen.EndLifeCycle.Subscribe(Create);
         deletedOffScreen.SetPointBorderScreen(_pointBorderScreen.position);
 
-        INeedyConfForMovement[] needyConfForMovement = roadbed.GetComponents<INeedyConfForMovement>();
-        foreach(INeedyConfForMovement needy in needyConfForMovement) 
+        INeedyConfigForMovement[] needyConfForMovement = roadbed.GetComponents<INeedyConfigForMovement>();
+        foreach(INeedyConfigForMovement needy in needyConfForMovement) 
         {
-            needy.Construct(_config);
+            needy.SetConfig(_config);
         }
     }
 }

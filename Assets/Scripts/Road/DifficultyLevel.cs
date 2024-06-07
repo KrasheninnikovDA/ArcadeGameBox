@@ -8,7 +8,7 @@ public class DifficultyLevel : MonoBehaviour
     [SerializeField, Range(1,2)] private float _coefficientOfIncreaseInSpeed;
     private Timer timerLevel;
 
-    private void Awake()
+    private void Start()
     {
         timerLevel = new Timer(_durationLevel, TimerMode.loop);
         timerLevel.ActionStopTimer.Subscribe(IncreaseSpeedRoad);

@@ -21,11 +21,11 @@ public class InputSignalHandler : MonoBehaviour, IRequiringInput, ISwitchable
 
     private void Update()
     {
-        EnableMoveStatus(_input.HorizontalMove);
+        SetStatus(_input.HorizontalMove);
         timeDilation.GiveSignalToSlowDown(_input.SignalOfBeginningOfDeceleration, _input.SignalForEndOfDeceleration);
     }
 
-    private void EnableMoveStatus(float direction)
+    private void SetStatus(float direction)
     {
         if (Mathf.Abs(direction) > sensitivity)
         {

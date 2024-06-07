@@ -7,7 +7,7 @@ public class RoadStarter : MonoBehaviour
     [SerializeField] private RoadConfig _config;
     [SerializeField] private Transform _pointBorderScreen;
 
-    void Awake()
+    void Start()
     {
         _roadbedCreater.Construct(_config, _pointBorderScreen);
     }

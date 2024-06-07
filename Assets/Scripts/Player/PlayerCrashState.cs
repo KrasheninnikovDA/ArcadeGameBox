@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class PlayerCrashState : AbsState, INeedyConfForMovement, IAnimated, IVoiced, ISwitchable
+public class PlayerCrashState : AbsState, INeedyConfigForMovement, IAnimated, IVoiced, ISwitchable
 {
     [SerializeField] private string _nameAnimation;
     [SerializeField] private AudioClip _clip;
@@ -21,7 +21,7 @@ public class PlayerCrashState : AbsState, INeedyConfForMovement, IAnimated, IVoi
     private float _speedAtMomentOfCrash;
     private Timer _timerCrash;
 
-    public void Construct(RoadConfig roadConfig)
+    public void SetConfig(RoadConfig roadConfig)
     {
         _speedRoad = roadConfig.SpeedRoadbed;
     }

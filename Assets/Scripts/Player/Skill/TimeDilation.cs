@@ -1,16 +1,16 @@
 
 using UnityEngine;
 
-public class TimeDilation : MonoBehaviour, INeedyConfForMovement
+public class TimeDilation : MonoBehaviour, INeedyConfigForMovement
 {
-    [SerializeField] private Variable<float> _decelerationFactor;
+    [SerializeField] private float _decelerationFactor;
     [SerializeField] private float _containerBattery;
 
     private Variable<float> _speedRoadbed;
     private TimeDilationMechanics _timeDilationMechanics;
     private BatteryMechanics _batteryMechanics;
 
-    public void Construct(RoadConfig roadConfig)
+    public void SetConfig(RoadConfig roadConfig)
     {
         _speedRoadbed = roadConfig.SpeedRoadbed;
         _timeDilationMechanics = new(_speedRoadbed, _decelerationFactor);
@@ -23,7 +23,7 @@ public class TimeDilation : MonoBehaviour, INeedyConfForMovement
         _batteryMechanics.Update();
         _batteryMechanics.StopUsingBattery(signalForEndOfDeceleration);
 
-        if (_batteryMechanics.isCapacity)
+        if (_batteryMechanics.isCapacity || signalForEndOfDeceleration)
         {
             SlowDown(signalOfBeginningOfDeceleration, signalForEndOfDeceleration);
         }
@@ -32,5 +32,6 @@ public class TimeDilation : MonoBehaviour, INeedyConfForMovement
     private void SlowDown(bool signalOfBeginningOfDeceleration, bool signalForEndOfDeceleration)
     {
         _timeDilationMechanics.GiveSignalToSlowDown(signalOfBeginningOfDeceleration, signalForEndOfDeceleration);
+        Game.EventBus.DischargeBattery.Invoke(_batteryMechanics.capacityPercentage);
     }
 }
