@@ -1,4 +1,5 @@
-
+/// класс - детектор столкновения машины. 
+/// переключает состояние игрока и машины, с которой тот столкнулся в состояние Crash
 using UnityEngine;
 
 public class PlayerCollisionDetector : MonoBehaviour, ISwitchable

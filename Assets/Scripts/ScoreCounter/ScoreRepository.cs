@@ -1,4 +1,4 @@
-
+/// класс - хранилище очков
 public class ScoreRepository 
 {
     public int GetScore => _score;

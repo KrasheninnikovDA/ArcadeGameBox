@@ -1,4 +1,4 @@
-
+/// класс реализующий движение дорожного полотна
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]

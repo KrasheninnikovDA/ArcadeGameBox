@@ -1,3 +1,4 @@
+/// шины событий "колхозница"
 
 public class EventBus
 {

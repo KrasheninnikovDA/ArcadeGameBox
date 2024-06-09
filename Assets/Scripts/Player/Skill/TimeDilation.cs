@@ -1,4 +1,4 @@
-
+/// класс - фасад, реализует две механики TimeDilationMechanics, BatteryMechanics
 using UnityEngine;
 
 public class TimeDilation : MonoBehaviour, INeedyConfigForMovement

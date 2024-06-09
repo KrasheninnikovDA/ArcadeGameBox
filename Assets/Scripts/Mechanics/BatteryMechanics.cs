@@ -1,4 +1,4 @@
-
+///класс - механика. реализует фунгкционал по расходу батареи замедления времени
 using UnityEngine;
 
 public class BatteryMechanics 

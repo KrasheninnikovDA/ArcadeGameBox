@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+/// класс - флаг, сингализирующий ScoreCounter что это объект за который надо начислить очки
 using UnityEngine;
 
 public class ScoreFlag : MonoBehaviour, IScore

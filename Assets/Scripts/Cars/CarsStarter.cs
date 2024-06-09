@@ -1,4 +1,4 @@
-
+/// точка входа для создания машины
 using UnityEngine;
 
 public class CarsStarter : MonoBehaviour, INeedyConfigForMovement

@@ -1,4 +1,4 @@
-
+/// счетчик очков. когда машина пересекает тригер, начисляются очки
 using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour

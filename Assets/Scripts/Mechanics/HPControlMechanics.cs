@@ -1,3 +1,5 @@
+/// класс - механика, реализует механику урона
+/// при нанесении уровна инвокает TakeDamageAction, при снижении хп ниже 0 - DeathAction
 
 public class HPControlMechanics
 {

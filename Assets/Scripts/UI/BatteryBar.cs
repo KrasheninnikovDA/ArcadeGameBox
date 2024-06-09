@@ -1,4 +1,4 @@
-
+/// отображение состояния батареи
 using UnityEngine;
 using UnityEngine.UI;
 

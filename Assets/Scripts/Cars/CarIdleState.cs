@@ -1,4 +1,6 @@
-
+/// класс - состояние. реализует AbsState. запускается из состояния CarMoveState через SwitcherState
+/// реализует движение машины по вертикали вместе с дорожным полотном
+/// по истечении таймера _idleTimer переключит состояние на CarMoveState
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]

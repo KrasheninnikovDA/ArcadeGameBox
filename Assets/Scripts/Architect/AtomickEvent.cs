@@ -1,3 +1,4 @@
+/// то же что AtomickAction, но с возможностью принимать параметры
 using System;
 
 [Serializable]

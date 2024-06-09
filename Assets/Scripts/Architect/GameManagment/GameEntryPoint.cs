@@ -1,4 +1,4 @@
-
+/// стартова€ точка игры. “очка инициализации класса Game
 using UnityEngine;
 
 [RequireComponent(typeof(SceneManagerExpansion))]

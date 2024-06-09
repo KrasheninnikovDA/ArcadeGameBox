@@ -1,4 +1,4 @@
-
+/// отображение состояния ХП
 using UnityEngine;
 using UnityEngine.UI;
 

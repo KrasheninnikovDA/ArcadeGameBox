@@ -1,4 +1,6 @@
-
+/// класс - состояние. реализаует AbsState. 
+/// замедляет дорожное полотно до 0, отключает коллайдер игрока, с течением времени постепенно по AnimationCurve разгоняет полотно до прежней скорости
+/// по истечении таймера _timerCrash переключает на состояние Idle
 using UnityEngine;
 
 public class PlayerCrashState : AbsState, INeedyConfigForMovement, IAnimated, IVoiced, ISwitchable
@@ -65,7 +67,7 @@ public class PlayerCrashState : AbsState, INeedyConfigForMovement, IAnimated, IV
 
     private void OnAudioSource()
     {
-        _audioSource.PlayAudioClip(this);
+        _audioSource.PlayAudioClip(this, false);
     }
 
     private void OffAudioSource()

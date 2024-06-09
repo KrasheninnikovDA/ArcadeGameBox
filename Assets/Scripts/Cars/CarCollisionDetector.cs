@@ -1,4 +1,5 @@
-
+/// класс - детектор столкновени€ машины. 
+/// ѕри стокновении с игроком, игрок вызывает метод Crash у машины, тем самым переключа€ ее состо€ние на CarCrashState
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]

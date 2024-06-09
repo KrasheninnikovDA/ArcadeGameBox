@@ -1,4 +1,4 @@
-
+/// граница дороги. класс реализует механику наенсения урона игроку если тот выезжает с дороги
 using UnityEngine;
 
 public class RoadBorder : MonoBehaviour

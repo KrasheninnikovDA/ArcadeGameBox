@@ -1,4 +1,4 @@
-
+/// кастомный таймер.
 using UnityEngine;
 
 public enum TimerMode

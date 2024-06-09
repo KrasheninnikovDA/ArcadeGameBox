@@ -1,4 +1,4 @@
-
+/// класс - надстройка над уровнями, обеспечивает передачу данных и функционала между уровнями
 public static class Game 
 {
     public static bool IsInit { private set; get; }

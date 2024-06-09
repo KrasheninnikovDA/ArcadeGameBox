@@ -1,5 +1,4 @@
-
-
+/// хранит номера индексов сцен игры
 public static class GameConstant
 {
     public const int IndexStartGameScene = 0;

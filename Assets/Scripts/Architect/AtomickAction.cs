@@ -1,3 +1,4 @@
+/// класс обертка Action. Нужен для возможности передачи Action как ссылки
 using System;
 
 [Serializable]

@@ -1,4 +1,4 @@
-
+/// класс - состояние. реализует AbsState. запускается если кнопки "лево" или "право" не нажаты
 using UnityEngine;
 
 public class PlayerIdleState : AbsState, IAnimated, IVoiced
@@ -25,7 +25,7 @@ public class PlayerIdleState : AbsState, IAnimated, IVoiced
 
     public override void Initialize()
     {
-        _audioSource.PlayAudioClip(this);
+        _audioSource.PlayAudioClip(this, true);
     }
 
     public override void СontrolledUpdate()

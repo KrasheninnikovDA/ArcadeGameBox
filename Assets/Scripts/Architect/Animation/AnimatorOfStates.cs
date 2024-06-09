@@ -1,4 +1,5 @@
-
+/// класс-переключатель анимаций. „тобы не передавать строку с наименованием анимации
+/// передаетс€ интерфейс IAnimated
 using UnityEngine;
 
 public class AnimatorOfStates : MonoBehaviour, IPlayingAnimations

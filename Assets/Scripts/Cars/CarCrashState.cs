@@ -1,4 +1,6 @@
-
+/// класс - состояние. реализует AbsState. запускается при столкновении
+/// метод Unplug ничего не реализует, так как это конечное состояние машины. 
+/// по истечении таймера _crashTimer машина будет уничтожена
 using UnityEngine;
 
 public class CarCrashState : AbsState, IAnimated

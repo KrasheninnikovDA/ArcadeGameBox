@@ -1,4 +1,4 @@
-
+/// точка входа для создания дорожного полотна
 using UnityEngine;
 
 public class RoadStarter : MonoBehaviour

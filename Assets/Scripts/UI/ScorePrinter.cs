@@ -1,4 +1,4 @@
-
+/// отображение победных рчков в сцене геймплея
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,4 +1,4 @@
-
+/// класс - фабрика. создает дородные полотна (Roadbed)
 using UnityEngine;
 
 public class RoadbedCreater : MonoBehaviour

@@ -1,4 +1,5 @@
-
+/// класс - детектор. отслеживает достижение точки - тригера дорожного полотка точки - тригера, расположенной за экраном
+/// когда дорожное полотно пересекает эту точку инвокается EndLifeCycle и запускает создание нового дорожного полотна
 using UnityEngine;
 
 public class RoadbedLifeCycle : MonoBehaviour, IDeletedOffScreen, IReadOnlyPosition

@@ -1,4 +1,4 @@
-
+/// точка входа для создания игрока
 using UnityEngine;
 
 public class PlayerStarter : MonoBehaviour

@@ -1,10 +1,10 @@
-
+/// перезапуск игры (конопка на последней сцене)
 using UnityEngine;
 
 public class RestartGameButton : MonoBehaviour
 {
     public void Restart()
     {
-        Game.SceneManagerExpansion.OpenScene(GameConstant.IndexStartGameScene);
+        Game.SceneManagerExpansion.RestartGame();
     }
 }

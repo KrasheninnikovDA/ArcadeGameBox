@@ -1,3 +1,6 @@
+/// класс - обработкич синграла ввода.
+/// передает данные в классы состояния и переключает два из них между собой PlayerIdleState и PlayerMoveState
+/// также передает сигналы в TimeDilation
 using UnityEngine;
 
 public class InputSignalHandler : MonoBehaviour, IRequiringInput, ISwitchable

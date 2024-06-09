@@ -1,4 +1,4 @@
-
+/// класс - фасад. реализует механику _hpControlMechanics
 using UnityEngine;
 
 public class PlayerHP : MonoBehaviour, ICrashed

@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedRoadbed:
-    _value: 6
+    _value: 10
 --- !u!114 &241614884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,8 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roadConfig: {fileID: 241614883}
-  _durationLevel: 40
-  _coefficientOfIncreaseInSpeed: 1.15
+  _durationLevel: 15
+  _coefficientOfIncreaseInSpeed: 1.2
 --- !u!1 &269318506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1453,7 @@ GameObject:
   - component: {fileID: 989405942}
   - component: {fileID: 989405948}
   m_Layer: 0
-  m_Name: Payer
+  m_Name: '[Payer]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nameAnimation: PlayerIdle
-  _clip: {fileID: 8300000, guid: 841e009fcb0375248b5302b9e138eafc, type: 3}
+  _clip: {fileID: 8300000, guid: e1fe9ce90fd00c94ea37e324ea201a95, type: 3}
 --- !u!114 &989405945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nameAnimation: PlayerCrash
-  _clip: {fileID: 8300000, guid: 841e009fcb0375248b5302b9e138eafc, type: 3}
+  _clip: {fileID: 8300000, guid: 1071ca1884c72a84a92df7055f53b96c, type: 3}
   _boxCollider2D: {fileID: 989405948}
   _inputSignalHandler: {fileID: 989405945}
   "_acceleration\u0421urve":
@@ -2604,7 +2604,7 @@ GameObject:
   - component: {fileID: 1879857718}
   - component: {fileID: 1879857720}
   m_Layer: 0
-  m_Name: UI
+  m_Name: '[UI]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

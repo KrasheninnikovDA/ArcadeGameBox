@@ -1,4 +1,4 @@
-
+/// класс - состояние. реализует AbsState. реализует механику движения по горизонтали при нажатии кнопок "лево" или "право"
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -43,7 +43,7 @@ public class PlayerMoveState : AbsState, IRequiringInput, IAnimated, IVoiced
 
     public override void Initialize()
     {
-        _audioSource.PlayAudioClip(this);
+        _audioSource.PlayAudioClip(this, true);
     }
 
     public override void СontrolledUpdate()

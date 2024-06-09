@@ -1,4 +1,5 @@
-
+/// класс регулирующий сложность игры 
+/// через указанный промежуток времени увеличивает скорость движения дорожного полотна
 using UnityEngine;
 
 public class DifficultyLevel : MonoBehaviour

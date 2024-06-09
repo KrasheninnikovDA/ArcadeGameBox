@@ -1,4 +1,4 @@
-
+/// класс установщик зависимостей.
 using UnityEngine;
 
 public class CarDependenciesInstaller : MonoBehaviour

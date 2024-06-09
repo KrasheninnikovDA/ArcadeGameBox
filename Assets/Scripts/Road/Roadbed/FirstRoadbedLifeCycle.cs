@@ -1,4 +1,4 @@
-
+/// костыль. реализует тотже функционал что и RoadbedLifeCycle, но кидает 2 инвока EndLifeCycle для срздания сразу 2 новых дорожных полотен
 using UnityEngine;
 
 public class FirstRoadbedLifeCycle : MonoBehaviour, IDeletedOffScreen, IReadOnlyPosition

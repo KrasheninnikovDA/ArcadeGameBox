@@ -1,4 +1,4 @@
-
+///абстракция описывающая состояние объекта (машины и игрока)
 using UnityEngine;
 
 public enum StateName
